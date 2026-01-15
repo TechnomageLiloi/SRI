@@ -1,6 +1,6 @@
 <?php
 
-    $pharFile = 'SRI.phar';
+    $pharFile = 'Paper.phar';
 
     if(file_exists($pharFile))
     {
