@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\SRI\API;
+namespace Liloi\Paper\API;
 
 /**
  * Abstract API method.

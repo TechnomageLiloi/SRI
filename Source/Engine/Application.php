@@ -1,11 +1,11 @@
 <?php
 
-namespace Liloi\SRI;
+namespace Liloi\Paper;
 
 use Liloi\Config\Pool;
 use Liloi\Config\Sparkle;
-use Liloi\SRI\API\Method;
-use Liloi\SRI\Domain\Manager as DomainManager;
+use Liloi\Paper\API\Method;
+use Liloi\Paper\Domain\Manager as DomainManager;
 use Rune\Application\General as GeneralApplication;
 
 /**
@@ -55,7 +55,7 @@ class Application extends GeneralApplication
             return $this->$name($parameters);
         }
 
-        $classMethod = 'Liloi\\SRI\\API\\' . ucfirst(str_replace('.', '\\', $name)) . '\\Method';
+        $classMethod = 'Liloi\\Paper\\API\\' . ucfirst(str_replace('.', '\\', $name)) . '\\Method';
 
         if(class_exists($classMethod))
         {
@@ -63,6 +63,6 @@ class Application extends GeneralApplication
             return $apiMethod->execute();
         }
 
-        throw new \Exception('No API method.');
+        throw new \Exception('No API method.'.$classMethod);
     }
 }

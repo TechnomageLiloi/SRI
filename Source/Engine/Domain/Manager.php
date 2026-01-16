@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\SRI\Domain;
+namespace Liloi\Paper\Domain;
 
 use Liloi\Config\Pool;
 use Liloi\Tools\Data\MySql\Adapter;
