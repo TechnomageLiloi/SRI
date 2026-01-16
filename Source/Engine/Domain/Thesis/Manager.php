@@ -8,8 +8,10 @@ class Manager extends DomainManager
 {
     static public function getThesis(): Entity
     {
+        $url = rtrim($_SERVER['REQUEST_URI'], '/');
+
         $root = self::getConfig()->get('root');
-        $filThesis = $root . '/.thesis';
+        $filThesis = $root . $url . '/.thesis';
 
         if(file_exists($filThesis))
         {
