@@ -1,11 +1,9 @@
 Requests.Thesis = {
     show: function ()
     {
-        debugger;
         API.request('Thesis.Show', {
             debug: true
         }, function (data) {
-            debugger;
             $('#page').html(data.render);
             Stylo.Trigger.initialize();
 
