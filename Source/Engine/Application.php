@@ -22,7 +22,7 @@ class Application extends GeneralApplication
     {
         parent::__construct($config);
 
-        Pool::getSingleton()->set(new Sparkle('connection', function() use ($config) { return $config['connection'];}));
+        Pool::getSingleton()->set(new Sparkle('root', function() use ($config) { return $config['root'];}));
         DomainManager::setConfig(Pool::getSingleton());
         Method::setConfig($config);
     }

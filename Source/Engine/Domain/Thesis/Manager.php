@@ -2,13 +2,27 @@
 
 namespace Liloi\Paper\Domain\Thesis;
 
-class Manager
+use Liloi\Paper\Domain\Manager as DomainManager;
+
+class Manager extends DomainManager
 {
     static public function getThesis(): Entity
     {
-        $entity = Entity::create([
-            'title' => 'Test123'
-        ]);
+        $root = self::getConfig()->get('root');
+        $filThesis = $root . '/.thesis';
+
+        if(file_exists($filThesis))
+        {
+            $data = (array)json_decode(file_get_contents($filThesis));
+        }
+        else
+        {
+            $data = [
+                'title' => 'Enter title'
+            ];
+        }
+
+        $entity = Entity::create($data);
 
         return $entity;
     }
